@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ACSessionViewController.h"
 
 @interface ACAppDelegate : NSObject <NSApplicationDelegate>
 
@@ -18,7 +19,7 @@
 @property (weak) IBOutlet NSArrayController *speakersController;
 @property (unsafe_unretained) IBOutlet NSWindow *addSessionWindow;
 @property (weak) IBOutlet NSArrayController *selectSessionController;
-
+@property IBOutlet ACSessionViewController *sessionViewController;
 - (IBAction)saveAction:(id)sender;
 
 - (IBAction)export:(id)sender;

@@ -8,6 +8,7 @@
 
 #import "ACAppDelegate.h"
 #import "Speaker.h"
+#import "ACDateValueTransformer.h"
 
 @implementation ACAppDelegate
 
@@ -15,9 +16,14 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
 
++ (void) initialize {
+    [NSValueTransformer setValueTransformer:[ACDateValueTransformer new]
+                                    forName:@"ACDateValueTransformer"];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    self.sessionViewController.managedObjectContext = self.managedObjectContext;
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.altconf.data.AltConfData" in the user's Application Support directory.
