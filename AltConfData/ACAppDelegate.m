@@ -7,6 +7,7 @@
 //
 
 #import "ACAppDelegate.h"
+#import "Speaker.h"
 
 @implementation ACAppDelegate
 
@@ -25,6 +26,44 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *appSupportURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] lastObject];
     return [appSupportURL URLByAppendingPathComponent:@"com.altconf.data.AltConfData"];
+}
+
+- (IBAction)export:(id)sender {
+    Speaker * speaker;
+    
+    speaker = [self.speakersController.selectedObjects firstObject];
+    
+    NSDictionary *jsonRep = [NSMutableDictionary new];
+    NSArray *items = @[@"id", @"event", @"type", @"name", @"photo", @"url", @"organization", @"position", @"biography", @"sessions", @"links"];
+    
+    for (NSString *key in items) {
+        id value = [speaker valueForKey:key];
+        if ([NSJSONSerialization isValidJSONObject:value]) {
+            [jsonRep setValue:value forKey:key];
+        }
+        else {
+            NSLog(@"'%@' is not a valid JSON object.", value);
+        }
+    }
+    NSError *error;
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:jsonRep options:NSJSONWritingPrettyPrinted
+                                      error:&error];
+    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+    [pasteboard clearContents];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    [pasteboard writeObjects:@[ jsonString ] ];
+    
+}
+
+- (IBAction)showAddSessionWIndow:(id)sender {
+    [self.addSessionWindow makeKeyAndOrderFront:self];
+}
+
+- (IBAction)addSessionToSpeaker:(id)sender {
+    Speaker *speaker = [self.speakersController.selectedObjects firstObject];
+    NSArray *sessions = [self.selectSessionController selectedObjects];
+    NSMutableSet *newSessions = [speaker mutableSetValueForKey:@"newSessions"];
+    [newSessions addObjectsFromArray:sessions];
 }
 
 // Creates if necessary and returns the managed object model for the application.

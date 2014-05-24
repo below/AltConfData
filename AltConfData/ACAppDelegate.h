@@ -15,7 +15,12 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (weak) IBOutlet NSArrayController *speakersController;
+@property (unsafe_unretained) IBOutlet NSWindow *addSessionWindow;
+@property (weak) IBOutlet NSArrayController *selectSessionController;
 
 - (IBAction)saveAction:(id)sender;
+
+- (IBAction)export:(id)sender;
 
 @end

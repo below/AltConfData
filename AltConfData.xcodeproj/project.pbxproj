@@ -19,6 +19,8 @@
 		CBE169EC192FF4DF009D6299 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE169C8192FF4DE009D6299 /* Cocoa.framework */; };
 		CBE169F4192FF4DF009D6299 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBE169F2192FF4DF009D6299 /* InfoPlist.strings */; };
 		CBE169F6192FF4DF009D6299 /* AltConfDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE169F5192FF4DF009D6299 /* AltConfDataTests.m */; };
+		CBE16A4D193000AC009D6299 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A4C193000AC009D6299 /* Speaker.m */; };
+		CBE16A5019309829009D6299 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A4F19309829009D6299 /* Session.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,10 @@
 		CBE169F1192FF4DF009D6299 /* AltConfDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AltConfDataTests-Info.plist"; sourceTree = "<group>"; };
 		CBE169F3192FF4DF009D6299 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CBE169F5192FF4DF009D6299 /* AltConfDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AltConfDataTests.m; sourceTree = "<group>"; };
+		CBE16A4B193000AC009D6299 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
+		CBE16A4C193000AC009D6299 /* Speaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speaker.m; sourceTree = "<group>"; };
+		CBE16A4E19309829009D6299 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		CBE16A4F19309829009D6299 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +127,11 @@
 				CBE169DB192FF4DE009D6299 /* ACAppDelegate.m */,
 				CBE169DD192FF4DF009D6299 /* MainMenu.xib */,
 				CBE169E3192FF4DF009D6299 /* Images.xcassets */,
+				CBE16A4B193000AC009D6299 /* Speaker.h */,
+				CBE16A4C193000AC009D6299 /* Speaker.m */,
 				CBE169E0192FF4DF009D6299 /* AltConfData.xcdatamodeld */,
+				CBE16A4E19309829009D6299 /* Session.h */,
+				CBE16A4F19309829009D6299 /* Session.m */,
 				CBE169CF192FF4DE009D6299 /* Supporting Files */,
 			);
 			path = AltConfData;
@@ -257,8 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBE169DC192FF4DE009D6299 /* ACAppDelegate.m in Sources */,
+				CBE16A5019309829009D6299 /* Session.m in Sources */,
 				CBE169D5192FF4DE009D6299 /* main.m in Sources */,
 				CBE169E2192FF4DF009D6299 /* AltConfData.xcdatamodeld in Sources */,
+				CBE16A4D193000AC009D6299 /* Speaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +483,7 @@
 				CBE169FB192FF4DF009D6299 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CBE169FC192FF4DF009D6299 /* Build configuration list for PBXNativeTarget "AltConfDataTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +492,7 @@
 				CBE169FE192FF4DF009D6299 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
