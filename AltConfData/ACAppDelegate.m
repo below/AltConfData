@@ -8,6 +8,7 @@
 
 #import "ACAppDelegate.h"
 #import "Speaker.h"
+#import "Session.h"
 #import "ACDateValueTransformer.h"
 #import "ACOrderedSetValueTransformer.h"
 
@@ -62,6 +63,50 @@
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     [pasteboard writeObjects:@[ jsonString ] ];
     
+}
+
+- (IBAction) importFromCSV:(id)sender {
+    NSOpenPanel *op = [NSOpenPanel openPanel];
+    op.allowedFileTypes = @[@"tsv"];
+    if ([op runModal] == NSFileHandlingPanelOKButton) {
+        NSURL *url = op.URL;
+        NSError *error = nil;
+        NSString *text = [NSString stringWithContentsOfURL:url
+                                              usedEncoding:nil
+                                                     error:&error];
+        if (error == nil) {
+            NSArray *lines = [text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+            BOOL gotHeader = NO;
+            for (NSString * oneLine in lines) {
+                if (gotHeader) {
+                    NSArray *components = [oneLine componentsSeparatedByString:@"\t"];
+                    if (components.count >= 7) {
+                        NSString *name = [components objectAtIndex:0];
+                        NSString *bio = [components objectAtIndex:3];
+                        NSString *avatar = [components objectAtIndex:4];
+                        NSString *sessionTitle = [components objectAtIndex:5];
+                        NSString *sessionAbstract = [components objectAtIndex:6];
+                        
+                        Speaker *speaker = (Speaker *)[[NSManagedObject alloc] initWithEntity:[NSEntityDescription entityForName:@"Speaker" inManagedObjectContext:self.managedObjectContext]
+                                                               insertIntoManagedObjectContext:self.managedObjectContext];
+                        speaker.name = name;
+                        speaker.biography = bio;
+                        speaker.url = avatar;
+                        
+                        Session *session = (Session *)[[NSManagedObject alloc] initWithEntity:[NSEntityDescription entityForName:@"Session" inManagedObjectContext:self.managedObjectContext]
+                                                               insertIntoManagedObjectContext:self.managedObjectContext];
+                        session.title = sessionTitle;
+                        session.abstract = sessionAbstract;
+                        session.speaker = [NSSet setWithObject:speaker];
+                    }
+                }
+                else {
+                    gotHeader = YES;
+                }
+            }
+            [self.managedObjectContext save:nil];
+        }
+    }
 }
 
 - (IBAction)showAddSessionWIndow:(id)sender {

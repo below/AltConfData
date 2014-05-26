@@ -98,6 +98,12 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Import from TSV…" id="chQ-xK-a4R">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="importFromCSV:" target="Voe-Tx-rLC" id="PyW-sB-wEO"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                             <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                 <connections>
@@ -768,6 +774,17 @@
                                                 <action selector="add:" target="FJU-3Y-eXs" id="wgP-Ei-5ff"/>
                                             </connections>
                                         </button>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MlB-Fv-8nI">
+                                            <rect key="frame" x="705" y="232" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tKO-t4-LNg">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="remove:" target="FJU-3Y-eXs" id="e1C-wq-afk"/>
+                                            </connections>
+                                        </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DqT-rI-LWz">
                                             <rect key="frame" x="11" y="244" width="82" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1116,7 +1133,7 @@
                             <rect key="frame" x="1" y="1" width="0.0" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="37" horizontal="NO" id="yVW-jU-QxG">
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="yVW-jU-QxG">
                             <rect key="frame" x="-15" y="17" width="16" height="0.0"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -1180,7 +1197,7 @@
                             <rect key="frame" x="1" y="1" width="0.0" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="37" horizontal="NO" id="xPR-ZF-e1d">
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="xPR-ZF-e1d">
                             <rect key="frame" x="-15" y="17" width="16" height="0.0"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -1210,11 +1227,7 @@
         </arrayController>
         <arrayController id="kcf-DW-mK5" userLabel="SpeakerSessionController">
             <connections>
-                <binding destination="FJU-3Y-eXs" name="contentArray" keyPath="selection.sessions" id="AAw-xi-RTL">
-                    <dictionary key="options">
-                        <string key="NSValueTransformerName">ACOrderedSetValueTransformer</string>
-                    </dictionary>
-                </binding>
+                <binding destination="FJU-3Y-eXs" name="contentSet" keyPath="selection.sessions" id="lAW-M6-MfK"/>
             </connections>
         </arrayController>
         <customObject id="cgS-2Z-Jnz" customClass="ACSessionViewController">

@@ -7,7 +7,7 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="session_description" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="speaker" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Session" inverseName="speaker" inverseEntity="Session" syncable="YES"/>
+        <relationship name="speaker" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Speaker" inverseName="sessions" inverseEntity="Speaker" syncable="YES"/>
     </entity>
     <entity name="Speaker" representedClassName="Speaker" syncable="YES">
         <attribute name="biography" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,10 +17,10 @@
         <attribute name="photo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Speaker" inverseName="sessions" inverseEntity="Speaker" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Session" inverseName="speaker" inverseEntity="Session" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Session" positionX="-18" positionY="54" width="128" height="150"/>
-        <element name="Speaker" positionX="-45" positionY="0" width="128" height="163"/>
+        <element name="Session" positionX="-18" positionY="54" width="128" height="148"/>
+        <element name="Speaker" positionX="-549" positionY="-108" width="128" height="163"/>
     </elements>
 </model>
