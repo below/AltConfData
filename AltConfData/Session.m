@@ -16,9 +16,12 @@
 @dynamic title;
 @dynamic abstract;
 @dynamic session_description;
-@dynamic url;
 @dynamic begin_raw;
-@dynamic duration;
+@dynamic end_raw;
 @dynamic speaker;
+
+- (NSNumber *) duration {
+    return [NSNumber numberWithInteger:(self.end_raw.doubleValue - self.begin_raw.doubleValue) / 60];
+}
 
 @end

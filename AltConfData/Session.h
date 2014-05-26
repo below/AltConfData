@@ -17,9 +17,9 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * abstract;
 @property (nonatomic, retain) NSString * session_description;
-@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSNumber * begin_raw;
-@property (nonatomic, retain) NSNumber * duration;
+@property (readonly) NSNumber * duration;
+@property (nonatomic, retain) NSNumber * end_raw;
 @property (nonatomic, retain) NSSet *speaker;
 @end
 

@@ -11,5 +11,6 @@
 @interface ACSessionViewController : NSObject
 @property (weak) NSManagedObjectContext *managedObjectContext;
 @property (weak) IBOutlet NSDatePicker *datePicker;
+@property (weak) IBOutlet NSDatePicker *endDatePicker;
 @property (weak) IBOutlet NSArrayController *sessionController;
 @end

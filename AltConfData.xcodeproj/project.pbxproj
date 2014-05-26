@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CB7C7C3E1930CB0500D2ADD8 /* ACSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7C7C3D1930CB0500D2ADD8 /* ACSessionViewController.m */; };
 		CB7C7C411930CE3900D2ADD8 /* ACDateValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7C7C401930CE3900D2ADD8 /* ACDateValueTransformer.m */; };
+		CB7C7C441931F94500D2ADD8 /* ACTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7C7C431931F94500D2ADD8 /* ACTableView.m */; };
+		CB7C7C4719331D6600D2ADD8 /* ACOrderedSetValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7C7C4619331D6600D2ADD8 /* ACOrderedSetValueTransformer.m */; };
 		CBE169C9192FF4DE009D6299 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE169C8192FF4DE009D6299 /* Cocoa.framework */; };
 		CBE169D3192FF4DE009D6299 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBE169D1192FF4DE009D6299 /* InfoPlist.strings */; };
 		CBE169D5192FF4DE009D6299 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE169D4192FF4DE009D6299 /* main.m */; };
@@ -40,6 +42,10 @@
 		CB7C7C3D1930CB0500D2ADD8 /* ACSessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSessionViewController.m; sourceTree = "<group>"; };
 		CB7C7C3F1930CE3900D2ADD8 /* ACDateValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDateValueTransformer.h; sourceTree = "<group>"; };
 		CB7C7C401930CE3900D2ADD8 /* ACDateValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACDateValueTransformer.m; sourceTree = "<group>"; };
+		CB7C7C421931F94500D2ADD8 /* ACTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTableView.h; sourceTree = "<group>"; };
+		CB7C7C431931F94500D2ADD8 /* ACTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTableView.m; sourceTree = "<group>"; };
+		CB7C7C4519331D6600D2ADD8 /* ACOrderedSetValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACOrderedSetValueTransformer.h; sourceTree = "<group>"; };
+		CB7C7C4619331D6600D2ADD8 /* ACOrderedSetValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACOrderedSetValueTransformer.m; sourceTree = "<group>"; };
 		CBE169C5192FF4DE009D6299 /* AltConfData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AltConfData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE169C8192FF4DE009D6299 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CBE169CB192FF4DE009D6299 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -140,9 +146,13 @@
 				CBE16A4F19309829009D6299 /* Session.m */,
 				CB7C7C3C1930CB0500D2ADD8 /* ACSessionViewController.h */,
 				CB7C7C3D1930CB0500D2ADD8 /* ACSessionViewController.m */,
+				CB7C7C421931F94500D2ADD8 /* ACTableView.h */,
+				CB7C7C431931F94500D2ADD8 /* ACTableView.m */,
 				CBE169CF192FF4DE009D6299 /* Supporting Files */,
 				CB7C7C3F1930CE3900D2ADD8 /* ACDateValueTransformer.h */,
 				CB7C7C401930CE3900D2ADD8 /* ACDateValueTransformer.m */,
+				CB7C7C4519331D6600D2ADD8 /* ACOrderedSetValueTransformer.h */,
+				CB7C7C4619331D6600D2ADD8 /* ACOrderedSetValueTransformer.m */,
 			);
 			path = AltConfData;
 			sourceTree = "<group>";
@@ -280,9 +290,11 @@
 				CB7C7C3E1930CB0500D2ADD8 /* ACSessionViewController.m in Sources */,
 				CBE16A5019309829009D6299 /* Session.m in Sources */,
 				CBE169D5192FF4DE009D6299 /* main.m in Sources */,
+				CB7C7C4719331D6600D2ADD8 /* ACOrderedSetValueTransformer.m in Sources */,
 				CBE169E2192FF4DF009D6299 /* AltConfData.xcdatamodeld in Sources */,
 				CBE16A4D193000AC009D6299 /* Speaker.m in Sources */,
 				CB7C7C411930CE3900D2ADD8 /* ACDateValueTransformer.m in Sources */,
+				CB7C7C441931F94500D2ADD8 /* ACTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

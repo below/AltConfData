@@ -805,7 +805,7 @@
                                                 <rect key="frame" x="1" y="17" width="765" height="209"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="g4j-d8-mqz" id="Vv3-cR-bcw">
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="g4j-d8-mqz" id="Vv3-cR-bcw" customClass="ACTableView">
                                                         <rect key="frame" x="0.0" y="0.0" width="770" height="209"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -845,7 +845,7 @@
                                                                 </connections>
                                                             </tableColumn>
                                                             <tableColumn width="69" minWidth="10" maxWidth="3.4028234663852886e+38" id="1FX-aP-3i2">
-                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Description">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Abstract">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -857,7 +857,7 @@
                                                                 </textFieldCell>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <connections>
-                                                                    <binding destination="mgR-OG-SwL" name="value" keyPath="arrangedObjects.session_description" id="9XK-fQ-W37"/>
+                                                                    <binding destination="mgR-OG-SwL" name="value" keyPath="arrangedObjects.abstract" id="XE2-Ts-WhD"/>
                                                                 </connections>
                                                             </tableColumn>
                                                             <tableColumn width="73.26171875" minWidth="10" maxWidth="3.4028234663852886e+38" id="E0h-0Z-cHH">
@@ -940,9 +940,9 @@
                                             </connections>
                                         </button>
                                         <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ruf-UK-xpS">
-                                            <rect key="frame" x="325" y="85" width="277" height="148"/>
+                                            <rect key="frame" x="335" y="175" width="208" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <datePickerCell key="cell" borderStyle="bezel" alignment="left" datePickerMode="range" datePickerStyle="clockAndCalendar" id="h2w-lH-dgc">
+                                            <datePickerCell key="cell" borderStyle="bezel" alignment="left" datePickerMode="range" id="h2w-lH-dgc">
                                                 <font key="font" metaFont="system"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="423295200">
                                                     <!--2014-06-01 06:00:00 +0000-->
@@ -956,9 +956,41 @@
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <datePickerElements key="datePickerElements" year="YES" month="YES" day="YES" hour="YES" minute="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cgS-2Z-Jnz" id="VDl-dl-eas"/>
+                                                </connections>
                                             </datePickerCell>
                                             <connections>
                                                 <binding destination="mgR-OG-SwL" name="value" keyPath="selection.begin_raw" id="1rx-h7-JEL">
+                                                    <dictionary key="options">
+                                                        <string key="NSValueTransformerName">ACDateValueTransformer</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </datePicker>
+                                        <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Um8-3c-AKh">
+                                            <rect key="frame" x="335" y="145" width="208" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <datePickerCell key="cell" borderStyle="bezel" alignment="left" datePickerMode="range" id="3u1-Hj-b2p">
+                                                <font key="font" metaFont="system"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="423295200">
+                                                    <!--2014-06-01 06:00:00 +0000-->
+                                                </date>
+                                                <date key="minDate" timeIntervalSinceReferenceDate="423295200">
+                                                    <!--2014-06-01 06:00:00 +0000-->
+                                                </date>
+                                                <date key="maxDate" timeIntervalSinceReferenceDate="423849600">
+                                                    <!--2014-06-07 16:00:00 +0000-->
+                                                </date>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <datePickerElements key="datePickerElements" year="YES" month="YES" day="YES" hour="YES" minute="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="cgS-2Z-Jnz" id="oIN-LY-FaG"/>
+                                                </connections>
+                                            </datePickerCell>
+                                            <connections>
+                                                <binding destination="mgR-OG-SwL" name="value" keyPath="selection.end_raw" id="78v-A8-YUc">
                                                     <dictionary key="options">
                                                         <string key="NSValueTransformerName">ACDateValueTransformer</string>
                                                     </dictionary>
@@ -974,7 +1006,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <binding destination="mgR-OG-SwL" name="value" keyPath="selection.session_description" id="aYM-qP-iFD"/>
+                                                <binding destination="mgR-OG-SwL" name="value" keyPath="selection.abstract" id="Hul-fs-z6Q"/>
                                             </connections>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwR-JW-GDh">
@@ -1120,7 +1152,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="363-Ev-NHG" name="value" keyPath="arrangedObjects.id" id="xvY-uq-V0q"/>
+                                                <binding destination="kcf-DW-mK5" name="value" keyPath="arrangedObjects.id" id="LTN-Ey-L62"/>
                                             </connections>
                                         </tableColumn>
                                         <tableColumn width="116" minWidth="40" maxWidth="1000" id="aMP-uj-6QC">
@@ -1136,7 +1168,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="363-Ev-NHG" name="value" keyPath="arrangedObjects.title" id="czz-DK-rAr"/>
+                                                <binding destination="kcf-DW-mK5" name="value" keyPath="arrangedObjects.title" id="Qtp-F3-SiU"/>
                                             </connections>
                                         </tableColumn>
                                     </tableColumns>
@@ -1178,7 +1210,11 @@
         </arrayController>
         <arrayController id="kcf-DW-mK5" userLabel="SpeakerSessionController">
             <connections>
-                <binding destination="FJU-3Y-eXs" name="contentArray" keyPath="selection.sessions" id="K3K-ze-yDj"/>
+                <binding destination="FJU-3Y-eXs" name="contentArray" keyPath="selection.sessions" id="AAw-xi-RTL">
+                    <dictionary key="options">
+                        <string key="NSValueTransformerName">ACOrderedSetValueTransformer</string>
+                    </dictionary>
+                </binding>
             </connections>
         </arrayController>
         <customObject id="cgS-2Z-Jnz" customClass="ACSessionViewController">

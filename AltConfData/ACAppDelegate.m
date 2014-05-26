@@ -9,6 +9,7 @@
 #import "ACAppDelegate.h"
 #import "Speaker.h"
 #import "ACDateValueTransformer.h"
+#import "ACOrderedSetValueTransformer.h"
 
 @implementation ACAppDelegate
 
@@ -19,6 +20,8 @@
 + (void) initialize {
     [NSValueTransformer setValueTransformer:[ACDateValueTransformer new]
                                     forName:@"ACDateValueTransformer"];
+    [NSValueTransformer setValueTransformer:[ACOrderedSetValueTransformer new]
+                                    forName:@"ACOrderedSetValueTransformer"];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -68,7 +71,7 @@
 - (IBAction)addSessionToSpeaker:(id)sender {
     Speaker *speaker = [self.speakersController.selectedObjects firstObject];
     NSArray *sessions = [self.selectSessionController selectedObjects];
-    NSMutableSet *newSessions = [speaker mutableSetValueForKey:@"newSessions"];
+    NSMutableSet *newSessions = [speaker mutableSetValueForKey:@"sessions"];
     [newSessions addObjectsFromArray:sessions];
 }
 
