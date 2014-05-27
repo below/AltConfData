@@ -28,4 +28,5 @@
 - (NSString *) type {
     return @"speaker";
 }
+
 @end
