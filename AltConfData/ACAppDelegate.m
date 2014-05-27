@@ -10,7 +10,6 @@
 #import "Speaker.h"
 #import "Session.h"
 #import "ACDateValueTransformer.h"
-#import "ACOrderedSetValueTransformer.h"
 
 @implementation ACAppDelegate
 
@@ -21,8 +20,6 @@
 + (void) initialize {
     [NSValueTransformer setValueTransformer:[ACDateValueTransformer new]
                                     forName:@"ACDateValueTransformer"];
-    [NSValueTransformer setValueTransformer:[ACOrderedSetValueTransformer new]
-                                    forName:@"ACOrderedSetValueTransformer"];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -39,24 +36,46 @@
 }
 
 - (IBAction)export:(id)sender {
-    Speaker * speaker;
-    
-    speaker = [self.speakersController.selectedObjects firstObject];
-    
-    NSDictionary *jsonRep = [NSMutableDictionary new];
-    NSArray *items = @[@"id", @"event", @"type", @"name", @"photo", @"url", @"organization", @"position", @"biography", @"sessions", @"links"];
-    
-    for (NSString *key in items) {
-        id value = [speaker valueForKey:key];
-        if ([NSJSONSerialization isValidJSONObject:value]) {
-            [jsonRep setValue:value forKey:key];
+    NSMutableArray *jsonArray = nil;
+    for (Speaker * speaker in self.speakersController.selectedObjects) {
+        
+        NSMutableDictionary *jsonRep = [NSMutableDictionary new];
+        
+        NSString *id = speaker.id;
+        jsonRep[@"id"] = id;
+        
+        jsonRep[@"event"] = @"alt";
+        jsonRep[@"type"] = @"speaker";
+        
+        NSString *name = speaker.name;
+        jsonRep[@"name"] = name;
+        
+        NSString *url = speaker.url;
+        jsonRep[@"url"] = url;
+        
+        NSString *biography = speaker.biography;
+        jsonRep[@"biography"] = biography;
+        
+        NSMutableArray *sessionArray = [NSMutableArray new];
+        NSSet *sessions = speaker.sessions;
+        for (Session * session in sessions) {
+            NSMutableDictionary *sessionRep = [NSMutableDictionary new];
+            NSString *sessionId = session.id;
+            if (sessionId.length > 0) {
+                sessionRep[@"id"] = sessionId;
+                NSString *sessionTitle = session.title;
+                sessionRep[@"title"] = sessionTitle;
+                [sessionArray addObject:sessionRep];
+            }
         }
-        else {
-            NSLog(@"'%@' is not a valid JSON object.", value);
-        }
+        if (sessionArray != nil)
+            jsonRep[@"sessions"] = sessionArray;
+        if (jsonArray == nil)
+            jsonArray = [NSMutableArray new];
+        [jsonArray addObject:jsonRep];
     }
     NSError *error;
-    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:jsonRep options:NSJSONWritingPrettyPrinted
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:jsonArray options:NSJSONWritingPrettyPrinted
                                       error:&error];
     NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
     [pasteboard clearContents];

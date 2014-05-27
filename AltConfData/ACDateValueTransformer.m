@@ -20,7 +20,8 @@
 - (id)transformedValue:(id)value {
     if ([value respondsToSelector:@selector(doubleValue)]) {
         NSTimeInterval interval = [value doubleValue];
-        return [NSDate dateWithTimeIntervalSinceReferenceDate:interval];
+        NSDate *resultDate = [NSDate dateWithTimeIntervalSinceReferenceDate:interval];
+        return resultDate;
     }
     else {
         return nil;

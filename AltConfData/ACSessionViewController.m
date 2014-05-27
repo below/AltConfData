@@ -22,7 +22,7 @@
 - (IBAction)exportSession:(id)sender {
     static NSDateFormatter *dateFormatter = nil;
     
-    NSMutableData *resultData = nil;
+    NSMutableArray *jsonArray = [[NSMutableArray alloc] initWithCapacity:self.sessionController.selectedObjects.count];
     for (Session *session in self.sessionController.selectedObjects) {
         NSMutableDictionary *jsonRep = [NSMutableDictionary new];
         jsonRep[@"id"] = session.id;
@@ -53,6 +53,11 @@
         if (abstract != nil)
             jsonRep[@"abstract"] = abstract;
         
+        NSDictionary *locationMuseum = @{@"id":@"alt-location-mainstage",@"label_en":@"Creativity Museum"};
+        NSDictionary *trackDevelopment = @{@"id":@"development",@"label_en":@"Development"};
+        jsonRep[@"location"] = locationMuseum;
+        jsonRep[@"track"] = trackDevelopment;
+        
         NSSet *speakers = session.speaker;
         NSMutableArray *speakerArray = nil;
         for (Speaker * speaker in speakers) {
@@ -64,17 +69,14 @@
         if (speakerArray != nil) {
             jsonRep[@"speakers"] = speakerArray;
         }
-        
-        NSError *error;
-        NSData * jsonData = [NSJSONSerialization dataWithJSONObject:jsonRep options:NSJSONWritingPrettyPrinted
-                                                              error:&error];
-        if (resultData == nil)
-            resultData = [NSMutableData new];
-        [resultData appendData:jsonData];
+        [jsonArray addObject:jsonRep];
     }
+    NSError *error;
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:jsonArray options:NSJSONWritingPrettyPrinted
+                                                          error:&error];
     NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
     [pasteboard clearContents];
-    NSString *jsonString = [[NSString alloc] initWithData:resultData
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData
                                                  encoding:NSUTF8StringEncoding];
     [pasteboard writeObjects:@[ jsonString ] ];
 
