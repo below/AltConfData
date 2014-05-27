@@ -823,8 +823,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="818" height="244"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ml-47-7ai">
-                                                            <rect key="frame" x="20" y="61" width="778" height="200"/>
+                                                        <scrollView misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ml-47-7ai">
+                                                            <rect key="frame" x="20" y="44" width="778" height="200"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <clipView key="contentView" id="5I4-yE-VMH">
                                                                 <rect key="frame" x="1" y="17" width="776" height="182"/>
@@ -853,7 +853,7 @@
                                                                                     <binding destination="mgR-OG-SwL" name="value" keyPath="arrangedObjects.id" id="CKk-5b-j7A"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn width="161.21484375" minWidth="40" maxWidth="1000" id="Wn2-Kt-QK3">
+                                                                            <tableColumn width="122.27734375" minWidth="40" maxWidth="1000" id="Wn2-Kt-QK3">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="title">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -869,7 +869,7 @@
                                                                                     <binding destination="mgR-OG-SwL" name="value" keyPath="arrangedObjects.title" id="EsR-MS-ZYg"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn width="501" minWidth="10" maxWidth="3.4028234663852886e+38" id="Ns2-6d-3va">
+                                                                            <tableColumn width="178.60546875" minWidth="10" maxWidth="3.4028234663852886e+38" id="Ns2-6d-3va">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="abstract">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -885,6 +885,55 @@
                                                                                     <binding destination="mgR-OG-SwL" name="value" keyPath="arrangedObjects.abstract" id="WAQ-Zs-Olc"/>
                                                                                 </connections>
                                                                             </tableColumn>
+                                                                            <tableColumn width="109.8671875" minWidth="10" maxWidth="3.4028234663852886e+38" id="8Zc-tT-QL6">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="start">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="JYI-up-LSF">
+                                                                                    <dateFormatter key="formatter" dateStyle="short" timeStyle="short" id="5p6-lf-n68"/>
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <connections>
+                                                                                        <binding destination="mgR-OG-SwL" name="value" keyPath="selection.begin_raw" id="vdO-d8-zEf">
+                                                                                            <dictionary key="options">
+                                                                                                <string key="NSValueTransformerName">ACDateValueTransformer</string>
+                                                                                            </dictionary>
+                                                                                        </binding>
+                                                                                    </connections>
+                                                                                </textFieldCell>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="mgR-OG-SwL" name="value" keyPath="arrangedObjects.begin_raw" id="weU-FY-G1K">
+                                                                                        <dictionary key="options">
+                                                                                            <string key="NSValueTransformerName">ACDateValueTransformer</string>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn width="245" minWidth="10" maxWidth="3.4028234663852886e+38" id="OA4-EF-sfc">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="end">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="mSr-Yt-c0K">
+                                                                                    <dateFormatter key="formatter" dateStyle="short" timeStyle="short" id="mdc-wF-U1p"/>
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="mgR-OG-SwL" name="value" keyPath="arrangedObjects.end_raw" id="J3N-8h-gjS">
+                                                                                        <dictionary key="options">
+                                                                                            <string key="NSValueTransformerName">ACDateValueTransformer</string>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
                                                                         </tableColumns>
                                                                     </tableView>
                                                                 </subviews>
@@ -894,7 +943,7 @@
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="De9-be-NuN"/>
                                                             </constraints>
                                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="ARI-zS-ENM">
-                                                                <rect key="frame" x="1" y="1" width="0.0" height="16"/>
+                                                                <rect key="frame" x="1" y="183" width="776" height="16"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="lal-lO-9I6">
@@ -1313,6 +1362,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </arrayController>
         <customObject id="cgS-2Z-Jnz" customClass="ACSessionViewController">
             <connections>
+                <outlet property="datePicker" destination="yCs-Bu-3Va" id="mmn-Z8-tUw"/>
+                <outlet property="endDatePicker" destination="cUx-gc-eRK" id="pjK-Mk-UaQ"/>
                 <outlet property="sessionController" destination="mgR-OG-SwL" id="Ueh-24-RSl"/>
             </connections>
         </customObject>
