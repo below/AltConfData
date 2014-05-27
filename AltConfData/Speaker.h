@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSString * organization;
 @property (nonatomic, retain) NSString * position;
 @property (nonatomic, retain) NSString * biography;
+@property (nonatomic, retain) NSString * twitter;
 @property (nonatomic, retain) NSSet *sessions;
 @end
 

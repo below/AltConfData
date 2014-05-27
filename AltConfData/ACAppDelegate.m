@@ -51,7 +51,25 @@
         jsonRep[@"name"] = name;
         
         NSString *url = speaker.url;
+        if (url.length == 0)
+            url = @"http://www.altconf.com/speakers/";
         jsonRep[@"url"] = url;
+        
+        NSString *photo = speaker.photo;
+        if (photo.length > 0)
+            jsonRep[@"photo"] = photo;
+        
+        NSString *twitter = speaker.twitter;
+        if (twitter.length > 0) {
+            NSMutableDictionary *linkDict = [NSMutableDictionary new];
+            
+            linkDict[@"url"] = [NSString stringWithFormat:@"https://twitter.com/%@", twitter];
+            linkDict[@"title"] = [NSString stringWithFormat:@"Twitter @%@", twitter];
+            linkDict[@"service"] = @"twitter";
+            linkDict[@"speaker-link"] = @"speaker-link";
+            linkDict[@"username"] = twitter;
+            jsonRep[@"links"] = @[linkDict];
+        }
         
         NSString *biography = speaker.biography;
         jsonRep[@"biography"] = biography;
@@ -193,9 +211,14 @@
         }
     }
     
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"AltConfData.storedata"];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
+    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url
+                                         options:options error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
         return nil;
     }

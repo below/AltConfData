@@ -43,6 +43,7 @@
 		CB7C7C401930CE3900D2ADD8 /* ACDateValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACDateValueTransformer.m; sourceTree = "<group>"; };
 		CB7C7C421931F94500D2ADD8 /* ACTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTableView.h; sourceTree = "<group>"; };
 		CB7C7C431931F94500D2ADD8 /* ACTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTableView.m; sourceTree = "<group>"; };
+		CBCB0D23193523800008091A /* AltConfData 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AltConfData 1.1.xcdatamodel"; sourceTree = "<group>"; };
 		CBE169C5192FF4DE009D6299 /* AltConfData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AltConfData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE169C8192FF4DE009D6299 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CBE169CB192FF4DE009D6299 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -518,9 +519,10 @@
 		CBE169E0192FF4DF009D6299 /* AltConfData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CBCB0D23193523800008091A /* AltConfData 1.1.xcdatamodel */,
 				CBE169E1192FF4DF009D6299 /* AltConfData.xcdatamodel */,
 			);
-			currentVersion = CBE169E1192FF4DF009D6299 /* AltConfData.xcdatamodel */;
+			currentVersion = CBCB0D23193523800008091A /* AltConfData 1.1.xcdatamodel */;
 			path = AltConfData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

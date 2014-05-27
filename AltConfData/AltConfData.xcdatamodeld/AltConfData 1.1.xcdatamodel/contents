@@ -16,11 +16,12 @@
         <attribute name="organization" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="twitter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="speaker" inverseEntity="Session" syncable="YES"/>
     </entity>
     <elements>
         <element name="Session" positionX="-18" positionY="54" width="128" height="150"/>
-        <element name="Speaker" positionX="-549" positionY="-108" width="128" height="165"/>
+        <element name="Speaker" positionX="-549" positionY="-108" width="128" height="180"/>
     </elements>
 </model>

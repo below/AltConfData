@@ -19,6 +19,7 @@
 @dynamic organization;
 @dynamic position;
 @dynamic biography;
+@dynamic twitter;
 @dynamic sessions;
 
 - (NSString *) event {

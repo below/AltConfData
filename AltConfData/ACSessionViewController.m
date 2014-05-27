@@ -54,8 +54,18 @@
             jsonRep[@"abstract"] = abstract;
         
         NSDictionary *locationMuseum = @{@"id":@"alt-location-mainstage",@"label_en":@"Creativity Museum"};
+        NSDictionary *locationLab = @{@"id":@"alt-location-labs",@"label_en":@"Jilian's"};
+
         NSDictionary *trackDevelopment = @{@"id":@"development",@"label_en":@"Development"};
-        jsonRep[@"location"] = locationMuseum;
+        NSDictionary *location;
+        if ([session.id rangeOfString:@"-lab-"].location != NSNotFound) {
+            location = locationLab;
+        }
+        else {
+            location = locationMuseum;
+        }
+        
+        jsonRep[@"location"] = location;
         jsonRep[@"track"] = trackDevelopment;
         
         NSSet *speakers = session.speaker;
