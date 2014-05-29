@@ -19,6 +19,7 @@
 @dynamic begin_raw;
 @dynamic end_raw;
 @dynamic speaker;
+@dynamic location;
 
 - (NSNumber *) duration {
     return [NSNumber numberWithInteger:(self.end_raw.doubleValue - self.begin_raw.doubleValue) / 60];

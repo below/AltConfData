@@ -9,6 +9,7 @@
 #import "ACSessionViewController.h"
 #import "Session.h"
 #import "Speaker.h"
+#import "Location.h"
 
 @implementation ACSessionViewController
 
@@ -53,19 +54,11 @@
         if (abstract != nil)
             jsonRep[@"abstract"] = abstract;
         
-        NSDictionary *locationMuseum = @{@"id":@"alt-location-mainstage",@"label_en":@"Creativity Museum"};
-        NSDictionary *locationLab = @{@"id":@"alt-location-labs",@"label_en":@"Jilian's"};
-
         NSDictionary *trackDevelopment = @{@"id":@"development",@"label_en":@"Development"};
-        NSDictionary *location;
-        if ([session.id rangeOfString:@"-lab-"].location != NSNotFound) {
-            location = locationLab;
-        }
-        else {
-            location = locationMuseum;
-        }
         
-        jsonRep[@"location"] = location;
+        Location *location = (Location *)session.location;
+        
+        jsonRep[@"location"] = @{@"id":location.id,@"label_en":location.label_en};;
         jsonRep[@"track"] = trackDevelopment;
         
         NSSet *speakers = session.speaker;
@@ -91,6 +84,13 @@
     [pasteboard writeObjects:@[ jsonString ] ];
 
 
+}
+
+- (IBAction) setLocation:(id)sender {
+    NSManagedObject *location = [self.locationSelectionController.selectedObjects firstObject];
+    for (Session *session in self.sessionController.selectedObjects) {
+        session.location = location;
+    }
 }
 
 @end

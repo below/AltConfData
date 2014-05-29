@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSNumber * begin_raw;
 @property (readonly) NSNumber * duration;
 @property (nonatomic, retain) NSNumber * end_raw;
+@property (nonatomic, retain) NSManagedObject *location;
 @property (nonatomic, retain) NSSet *speaker;
 @end
 

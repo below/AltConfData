@@ -13,4 +13,8 @@
 @property (weak) IBOutlet NSDatePicker *datePicker;
 @property (weak) IBOutlet NSDatePicker *endDatePicker;
 @property (weak) IBOutlet NSArrayController *sessionController;
+@property (weak) IBOutlet NSArrayController *locationSelectionController;
+
+- (IBAction) setLocation:(id)sender;
+
 @end
